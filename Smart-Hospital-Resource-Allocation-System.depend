@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1789725638 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1789724330 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient_data.c
+
