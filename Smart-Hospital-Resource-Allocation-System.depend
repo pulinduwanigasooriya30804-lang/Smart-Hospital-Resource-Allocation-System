@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1789726174 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\main.c
+1789817154 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 
 1789724330 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient_data.c
 
