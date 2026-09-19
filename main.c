@@ -1,8 +1,7 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int main()
 {
-    printf("Smart Hospital\n");
+    printf("==========Smart Hospital System==========\n");
     return 0;
 }
