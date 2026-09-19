@@ -75,6 +75,9 @@ double discount[MAX_PATIENTS];
 double finalAmount[MAX_PATIENTS];
 double waitingTime[MAX_PATIENTS];
 
+int bedOccupancy[MAX_WARDS][MAX_BEDS];
+
+
 int main()
 {
     printf("==========Smart Hospital System==========\n");
