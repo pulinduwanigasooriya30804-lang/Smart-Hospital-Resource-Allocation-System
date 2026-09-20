@@ -18,7 +18,7 @@ int main()
     {
         printf("\n=============================================\n");
         printf("     SMART HOSPITAL RESOURCE SYSTEM            \n");
-        printf("=============================================== \n");
+        printf("============================================= \n");
 
         printf("\n1. Register Patient");
         printf("\n2. Display Bed Status");
