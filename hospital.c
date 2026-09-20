@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include "hospital.h"
+
 
 
 const char *specialtyName[4] = {
@@ -49,3 +51,55 @@ const int wardCapacity[4] = {
     10,
     5
 };
+
+void displaySpecialties()
+
+{
+
+    int i;
+
+    printf("\n========== SPECIALTIES ==========\n");
+
+    for(i = 0; i < 4; i++)
+
+    {
+
+        printf("%d. %s - Rs. %.2f - %d minutes\n",
+
+               i + 1,
+
+               specialtyName[i],
+
+               consultationFee[i],
+
+               consultationTime[i]);
+
+    }
+
+}
+
+void displayWards()
+
+{
+
+    int i;
+
+    printf("\n========== WARDS ==========\n");
+
+    for(i = 0; i < 4; i++)
+
+    {
+
+        printf("%d. %s - Rs. %.2f/day - Capacity: %d\n",
+
+               i + 1,
+
+               wardName[i],
+
+               wardDailyRate[i],
+
+               wardCapacity[i]);
+
+    }
+
+}

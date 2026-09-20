@@ -13,4 +13,7 @@ extern const char *wardName[4];
 extern const double wardDailyRate[4];
 extern const int wardCapacity[4];
 
+void displaySpecialties();
+void displayWards();
+
 #endif

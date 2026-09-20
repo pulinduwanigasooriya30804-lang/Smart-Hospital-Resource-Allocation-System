@@ -13,9 +13,65 @@ int main()
     int choice;
 
     initializeBeds();
-    printf("=========================================================================\n");
-    printf("                    Smart Hospital Resource System                        \n");
-    printf("=========================================================================\n");
+
+    do
+    {
+        printf("\n=============================================\n");
+        printf("     SMART HOSPITAL RESOURCE SYSTEM            \n");
+        printf("=============================================== \n");
+
+        printf("\n1. Register Patient");
+        printf("\n2. Display Bed Status");
+        printf("\n3. Display Patients by Priority");
+        printf("\n4. Generate Performance Report");
+        printf("\n5. Display Specialties");
+        printf("\n6. Display Wards");
+        printf("\n7. Save Data");
+        printf("\n0. Exit");
+
+        printf("\n\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice)
+        {
+            case 1:
+                printf("\nPatient registration module will be added.\n");
+                break;
+
+            case 2:
+                displayBeds();
+                break;
+
+            case 3:
+                printf("\nPriority display module will be added.\n");
+                break;
+
+            case 4:
+                generateReport();
+                break;
+
+            case 5:
+                displaySpecialties();
+                break;
+
+            case 6:
+                displayWards();
+                break;
+
+            case 7:
+                printf("\nData saving module will be added.\n");
+                break;
+
+            case 0:
+                printf("\nExiting Smart Hospital System...\n");
+                break;
+
+            default:
+                printf("\nInvalid choice. Please try again.\n");
+        }
+
+    } while(choice != 0);
+
     return 0;
 }
 
