@@ -27,5 +27,7 @@ extern int specialtyQueue[4];
 
 void registerPatient();
 void allocateBed(int index);
+void sortPatientsByPriority();
+void displayPatientsByPriority();
 
 #endif

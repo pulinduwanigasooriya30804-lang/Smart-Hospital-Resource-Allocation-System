@@ -164,3 +164,137 @@ void allocateBed(int index)
     printf("Ward : %s\n", wardName[patientWard[index]]);
     printf("Bed  : %d\n", bed + 1);
 }
+
+void sortPatientsByPriority()
+{
+    int i, j, maxIndex;
+
+    for(i = 0; i < patientCount - 1; i++)
+    {
+        maxIndex = i;
+
+        for(j = i + 1; j < patientCount; j++)
+        {
+            if(urgencyLevel[j] > urgencyLevel[maxIndex])
+            {
+                maxIndex = j;
+            }
+        }
+
+        if(maxIndex != i)
+        {
+            int tempInt;
+            double tempDouble;
+            char tempName[MAX_NAME];
+
+            strcpy(tempName, patientName[i]);
+            strcpy(patientName[i], patientName[maxIndex]);
+            strcpy(patientName[maxIndex], tempName);
+
+            tempInt = patientAge[i];
+            patientAge[i] = patientAge[maxIndex];
+            patientAge[maxIndex] = tempInt;
+
+            tempInt = urgencyLevel[i];
+            urgencyLevel[i] = urgencyLevel[maxIndex];
+            urgencyLevel[maxIndex] = tempInt;
+
+            tempInt = patientSpecialty[i];
+            patientSpecialty[i] = patientSpecialty[maxIndex];
+            patientSpecialty[maxIndex] = tempInt;
+
+            tempInt = admitted[i];
+            admitted[i] = admitted[maxIndex];
+            admitted[maxIndex] = tempInt;
+
+            tempInt = patientWard[i];
+            patientWard[i] = patientWard[maxIndex];
+            patientWard[maxIndex] = tempInt;
+
+            tempInt = admittedDays[i];
+            admittedDays[i] = admittedDays[maxIndex];
+            admittedDays[maxIndex] = tempInt;
+
+            tempInt = assignedBed[i];
+            assignedBed[i] = assignedBed[maxIndex];
+            assignedBed[maxIndex] = tempInt;
+
+            tempDouble = baseFee[i];
+            baseFee[i] = baseFee[maxIndex];
+            baseFee[maxIndex] = tempDouble;
+
+            tempDouble = surcharge[i];
+            surcharge[i] = surcharge[maxIndex];
+            surcharge[maxIndex] = tempDouble;
+
+            tempDouble = wardCost[i];
+            wardCost[i] = wardCost[maxIndex];
+            wardCost[maxIndex] = tempDouble;
+
+            tempDouble = grossTotal[i];
+            grossTotal[i] = grossTotal[maxIndex];
+            grossTotal[maxIndex] = tempDouble;
+
+            tempDouble = discount[i];
+            discount[i] = discount[maxIndex];
+            discount[maxIndex] = tempDouble;
+
+            tempDouble = finalAmount[i];
+            finalAmount[i] = finalAmount[maxIndex];
+            finalAmount[maxIndex] = tempDouble;
+
+            tempDouble = waitingTime[i];
+            waitingTime[i] = waitingTime[maxIndex];
+            waitingTime[maxIndex] = tempDouble;
+        }
+    }
+}
+
+void displayPatientsByPriority()
+{
+    int i;
+
+    if(patientCount == 0)
+    {
+        printf("\nNo patients registered.\n");
+        return;
+    }
+
+    sortPatientsByPriority();
+
+    printf("\n========== PATIENTS BY PRIORITY ==========\n");
+
+    for(i = 0; i < patientCount; i++)
+    {
+        printf("\nPatient %d\n", i + 1);
+        printf("Name      : %s\n", patientName[i]);
+        printf("Age       : %d\n", patientAge[i]);
+        printf("Urgency   : ");
+
+        if(urgencyLevel[i] == 3)
+            printf("Emergency\n");
+        else if(urgencyLevel[i] == 2)
+            printf("Urgent\n");
+        else
+            printf("Normal\n");
+
+        printf("Specialty : %s\n",
+               specialtyName[patientSpecialty[i]]);
+
+        if(admitted[i] == 1)
+        {
+            printf("Ward      : %s\n",
+                   wardName[patientWard[i]]);
+            printf("Bed       : %d\n",
+                   assignedBed[i] + 1);
+        }
+        else
+        {
+            printf("Ward      : Not Admitted\n");
+            printf("Bed       : Not Assigned\n");
+        }
+
+        printf("Final Bill: Rs. %.2f\n",
+               finalAmount[i]);
+    }
+}

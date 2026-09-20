@@ -43,7 +43,7 @@ int main()
                 break;
 
             case 3:
-                printf("\nPriority display module will be added.\n");
+                displayPatientsByPriority();
                 break;
 
             case 4:
