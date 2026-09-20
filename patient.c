@@ -1,4 +1,7 @@
+#include <stdio.h>
+#include <string.h>
 #include "patient.h"
+#include "hospital.h"
 
 int patientCount = 0;
 
@@ -20,3 +23,56 @@ double finalAmount[MAX_PATIENTS];
 double waitingTime[MAX_PATIENTS];
 
 int specialtyQueue[4] = {0, 0, 0, 0};
+
+void registerPatient()
+{
+    if(patientCount >= MAX_PATIENTS)
+    {
+        printf("\nPatient limit reached.\n");
+        return;
+    }
+
+    printf("\n========== PATIENT REGISTRATION ==========\n");
+
+    printf("Enter patient name: ");
+    scanf(" %49[^\n]", patientName[patientCount]);
+
+    printf("Enter age: ");
+    scanf("%d", &patientAge[patientCount]);
+
+    printf("\nUrgency Level\n");
+    printf("1. Normal\n");
+    printf("2. Urgent\n");
+    printf("3. Emergency\n");
+
+    printf("Enter urgency level: ");
+    scanf("%d", &urgencyLevel[patientCount]);
+
+    displaySpecialties();
+
+    printf("\nSelect specialty: ");
+    scanf("%d", &patientSpecialty[patientCount]);
+
+    patientSpecialty[patientCount]--;
+
+    admitted[patientCount] = 0;
+    patientWard[patientCount] = -1;
+    admittedDays[patientCount] = 0;
+    assignedBed[patientCount] = -1;
+
+    baseFee[patientCount] =
+        consultationFee[patientSpecialty[patientCount]];
+
+    surcharge[patientCount] = 0;
+    wardCost[patientCount] = 0;
+    grossTotal[patientCount] = baseFee[patientCount];
+    discount[patientCount] = 0;
+    finalAmount[patientCount] = baseFee[patientCount];
+    waitingTime[patientCount] = 0;
+
+    specialtyQueue[patientSpecialty[patientCount]]++;
+
+    patientCount++;
+
+    printf("\nPatient registered successfully!\n");
+}

@@ -25,4 +25,6 @@ extern double waitingTime[MAX_PATIENTS];
 
 extern int specialtyQueue[4];
 
+void registerPatient();
+
 #endif

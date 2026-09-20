@@ -35,7 +35,7 @@ int main()
         switch(choice)
         {
             case 1:
-                printf("\nPatient registration module will be added.\n");
+                registerPatient();
                 break;
 
             case 2:
