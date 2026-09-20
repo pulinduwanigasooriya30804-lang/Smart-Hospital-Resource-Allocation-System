@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1789886362 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\main.c
+1789900099 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -22,8 +22,13 @@
 
 1789881856 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\hospital.h
 
-1789846622 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.c
+1789900101 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.c
+	<stdio.h>
+	<string.h>
 	"patient.h"
+	"hospital.h"
+	"bed.h"
+	"billing.h"
 
 1789900101 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.h
 
