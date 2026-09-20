@@ -327,3 +327,70 @@ void savePatientRecord(int index)
 
     printf("\nPatient record saved successfully.\n");
 }
+
+void loadPatientRecords()
+{
+    FILE *file;
+
+    file = fopen("patient_records.txt", "r");
+
+    if(file == NULL)
+    {
+        printf("\nNo saved patient records found.\n");
+        return;
+    }
+
+    patientCount = 0;
+
+    while(patientCount < MAX_PATIENTS)
+    {
+        if(fscanf(file,
+                  " %49[^,],%d,%d,%d,%d,%d,%d,%d,%lf",
+                  patientName[patientCount],
+                  &patientAge[patientCount],
+                  &urgencyLevel[patientCount],
+                  &patientSpecialty[patientCount],
+                  &admitted[patientCount],
+                  &patientWard[patientCount],
+                  &admittedDays[patientCount],
+                  &assignedBed[patientCount],
+                  &finalAmount[patientCount]) != 9)
+        {
+            break;
+        }
+
+        baseFee[patientCount] =
+            consultationFee[patientSpecialty[patientCount]];
+
+        surcharge[patientCount] =
+            calculateSurcharge(
+                baseFee[patientCount],
+                urgencyLevel[patientCount]
+            );
+
+        wardCost[patientCount] =
+            calculateWardCost(
+                patientWard[patientCount],
+                admittedDays[patientCount]
+            );
+
+        grossTotal[patientCount] =
+            baseFee[patientCount]
+            + surcharge[patientCount]
+            + wardCost[patientCount];
+
+        discount[patientCount] =
+            calculateDiscount(
+                grossTotal[patientCount],
+                patientAge[patientCount]
+            );
+
+        waitingTime[patientCount] = 0;
+
+        patientCount++;
+    }
+
+    fclose(file);
+
+    printf("\nPatient records loaded successfully.\n");
+}

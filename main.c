@@ -14,6 +14,9 @@ int main()
 
     initializeBeds();
 
+    loadBeds();
+    loadPatientRecords();
+
     do
     {
         printf("\n=============================================\n");

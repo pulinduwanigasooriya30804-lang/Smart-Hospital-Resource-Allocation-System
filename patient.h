@@ -30,5 +30,6 @@ void allocateBed(int index);
 void sortPatientsByPriority();
 void displayPatientsByPriority();
 void savePatientRecord(int index);
+void loadPatientRecords();
 
 #endif

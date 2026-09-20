@@ -9,5 +9,6 @@ void initializeBeds();
 int findAvailableBed(int ward);
 void displayBeds();
 void saveBeds();
+void loadBeds();
 
 #endif

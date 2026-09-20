@@ -84,3 +84,45 @@ void saveBeds()
 
     printf("\nBed data saved successfully.\n");
 }
+
+void loadBeds()
+{
+    FILE *file;
+    int i, j;
+    int bedNumber;
+    int status;
+
+    file = fopen("beds_status.txt", "r");
+
+    if(file == NULL)
+    {
+        printf("\nNo saved bed data found.\n");
+        return;
+    }
+
+    for(i = 0; i < MAX_WARDS; i++)
+    {
+        char ward[50];
+
+        if(fgets(ward, sizeof(ward), file) == NULL)
+        {
+            break;
+        }
+
+        for(j = 0; j < wardCapacity[i]; j++)
+        {
+            if(fscanf(file, "%d %d",
+                      &bedNumber,
+                      &status) != 2)
+            {
+                break;
+            }
+
+            bedOccupancy[i][j] = status;
+        }
+    }
+
+    fclose(file);
+
+    printf("\nBed data loaded successfully.\n");
+}

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1789900099 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\main.c
+1789905291 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -22,7 +22,7 @@
 
 1789881856 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\hospital.h
 
-1789900101 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.c
+1789905163 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.c
 	<stdio.h>
 	<string.h>
 	"patient.h"
@@ -30,7 +30,7 @@
 	"bed.h"
 	"billing.h"
 
-1789904066 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.h
+1789905165 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.h
 
 1789879464 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\billing.c
 	<stdio.h>
@@ -40,7 +40,7 @@
 
 1789879464 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\billing.h
 
-1789851266 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\bed.h
+1789904642 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\bed.h
 	"hospital.h"
 
 1789900657 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\report.c
@@ -50,7 +50,7 @@
 
 1789880222 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\report.h
 
-1789851266 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\bed.c
+1789904767 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\bed.c
 	<stdio.h>
 	"bed.h"
 
