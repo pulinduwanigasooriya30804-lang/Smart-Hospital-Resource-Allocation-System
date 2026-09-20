@@ -5,6 +5,7 @@
 #include "hospital.h"
 #include "patient.h"
 #include "bed.h"
+#include "billing.h"
 
 
 int main()
