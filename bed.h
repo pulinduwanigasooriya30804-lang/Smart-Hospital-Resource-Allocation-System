@@ -8,5 +8,6 @@ extern int bedOccupancy[MAX_WARDS][MAX_BEDS];
 void initializeBeds();
 int findAvailableBed(int ward);
 void displayBeds();
+void saveBeds();
 
 #endif

@@ -59,8 +59,18 @@ int main()
                 break;
 
             case 7:
-                printf("\nData saving module will be added.\n");
-                break;
+                 saveBeds();
+
+                 if(patientCount > 0)
+                 {
+                     int i;
+                     for(i = 0; i < patientCount; i++)
+                     {
+                         savePatientRecord(i);
+                     }
+                 }
+
+                 break;
 
             case 0:
                 printf("\nExiting Smart Hospital System...\n");

@@ -298,3 +298,32 @@ void displayPatientsByPriority()
                finalAmount[i]);
     }
 }
+
+void savePatientRecord(int index)
+{
+    FILE *file;
+
+    file = fopen("patient_records.txt", "a");
+
+    if(file == NULL)
+    {
+        printf("\nError opening patient_records.txt\n");
+        return;
+    }
+
+    fprintf(file,
+            "%s,%d,%d,%d,%d,%d,%d,%d,%.2f\n",
+            patientName[index],
+            patientAge[index],
+            urgencyLevel[index],
+            patientSpecialty[index],
+            admitted[index],
+            patientWard[index],
+            admittedDays[index],
+            assignedBed[index],
+            finalAmount[index]);
+
+    fclose(file);
+
+    printf("\nPatient record saved successfully.\n");
+}

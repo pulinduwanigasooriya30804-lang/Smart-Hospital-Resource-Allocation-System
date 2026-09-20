@@ -30,7 +30,7 @@
 	"bed.h"
 	"billing.h"
 
-1789900101 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.h
+1789904066 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\patient.h
 
 1789879464 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\billing.c
 	<stdio.h>
@@ -43,7 +43,7 @@
 1789851266 c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\bed.h
 	"hospital.h"
 
-1789880219 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\report.c
+1789900657 source:c:\users\pulin\onedrive\desktop\smart-hospital-resource-allocation-system\report.c
 	<stdio.h>
 	"report.h"
 	"patient.h"
