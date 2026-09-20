@@ -2,6 +2,7 @@
 #include <string.h>
 #include "patient.h"
 #include "hospital.h"
+#include "bed.h"
 
 int patientCount = 0;
 
@@ -70,9 +71,66 @@ void registerPatient()
     finalAmount[patientCount] = baseFee[patientCount];
     waitingTime[patientCount] = 0;
 
+    printf("\nDo you want to admit the patient?\n");
+    printf("1. Yes\n");
+    printf("2. No\n");
+
+    printf("Enter choice: ");
+    scanf("%d", &admitted[patientCount]);
+
+    if(admitted[patientCount] == 1)
+    {
+        displayWards();
+
+        printf("\nSelect ward: ");
+        scanf("%d", &patientWard[patientCount]);
+
+        patientWard[patientCount]--;
+
+        printf("Enter number of admitted days: ");
+        scanf("%d", &admittedDays[patientCount]);
+    }
+    else
+    {
+        patientWard[patientCount] = -1;
+        admittedDays[patientCount] = 0;
+    }
+
     specialtyQueue[patientSpecialty[patientCount]]++;
 
     patientCount++;
 
+    allocateBed(patientCount - 1);
+
     printf("\nPatient registered successfully!\n");
+}
+
+
+void allocateBed(int index)
+{
+    int bed;
+
+    if(admitted[index] != 1)
+    {
+        return;
+    }
+
+    bed = findAvailableBed(patientWard[index]);
+
+    if(bed == -1)
+    {
+        printf("\nNo available bed in the selected ward.\n");
+
+        assignedBed[index] = -1;
+
+        return;
+    }
+
+    assignedBed[index] = bed;
+
+    bedOccupancy[patientWard[index]][bed] = 1;
+
+    printf("\nBed allocated successfully!\n");
+    printf("Ward : %s\n", wardName[patientWard[index]]);
+    printf("Bed  : %d\n", bed + 1);
 }
