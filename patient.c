@@ -3,6 +3,7 @@
 #include "patient.h"
 #include "hospital.h"
 #include "bed.h"
+#include "billing.h"
 
 int patientCount = 0;
 
@@ -96,13 +97,42 @@ void registerPatient()
         admittedDays[patientCount] = 0;
     }
 
-    specialtyQueue[patientSpecialty[patientCount]]++;
+   specialtyQueue[patientSpecialty[patientCount]]++;
 
-    patientCount++;
+   patientCount++;
 
-    allocateBed(patientCount - 1);
+   allocateBed(patientCount - 1);
 
-    printf("\nPatient registered successfully!\n");
+   surcharge[patientCount - 1] =
+       calculateSurcharge(
+           baseFee[patientCount - 1],
+           urgencyLevel[patientCount - 1]
+       );
+
+   wardCost[patientCount - 1] =
+       calculateWardCost(
+           patientWard[patientCount - 1],
+           admittedDays[patientCount - 1]
+       );
+
+   grossTotal[patientCount - 1] =
+       baseFee[patientCount - 1]
+       + surcharge[patientCount - 1]
+       + wardCost[patientCount - 1];
+
+   discount[patientCount - 1] =
+       calculateDiscount(
+           grossTotal[patientCount - 1],
+           patientAge[patientCount - 1]
+       );
+
+   finalAmount[patientCount - 1] =
+       grossTotal[patientCount - 1]
+       - discount[patientCount - 1];
+
+   printf("\nPatient registered successfully!\n");
+
+   displayPatientBill(patientCount -1);
 }
 
 
